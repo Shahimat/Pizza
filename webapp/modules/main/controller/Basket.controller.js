@@ -27,38 +27,7 @@ sap.ui.define([
 			])
 		},
 
-		onQuantityDown: function(oEvent){
-			
-			let sPath = oEvent.getSource().getBindingContext("pizzadata").getPath();
-			let nQuantity = oEvent.getSource().getBindingContext("pizzadata").getObject().quantity;
-			nQuantity = nQuantity > 0? --nQuantity: 0;
-			let oModel = this.getView().getModel("pizzadata");
-			oModel.setProperty(sPath + '/quantity', nQuantity);
-			this.getOwnerComponent().onCalculate();
-			this.onFilter();
-		},
-
-		onQuantityUp: function(oEvent){
-
-			let sPath = oEvent.getSource().getBindingContext("pizzadata").getPath();
-			let nQuantity = Number(oEvent.getSource().getBindingContext("pizzadata").getObject().quantity);
-			nQuantity = nQuantity < 9? ++nQuantity: 9;
-			let oModel = this.getView().getModel("pizzadata");
-			oModel.setProperty(sPath + '/quantity', nQuantity);
-			this.getOwnerComponent().onCalculate();
-			this.onFilter();
-		},
-
-		onValidatePizzaQuantity: function(oEvent){
-			let sValue = oEvent.getSource().getValue();
-			let sNewValue = "0";
-			if(sValue){
-				sNewValue = Number(sValue);
-				if(sNewValue < 0) sNewValue = 0;
-				if(sNewValue > 9) sNewValue = 9;
-			}
-			oEvent.getSource().setValue( sNewValue );
-			this.getOwnerComponent().onCalculate();
+		onSIChange: function (oEvent) {
 			this.onFilter();
 		}		
 		

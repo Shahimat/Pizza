@@ -25,7 +25,7 @@
 				<Image
 					src="/images/startpage.jpg"
 					width="100%"
-					visible="true"
+					visible="false"
 					densityAware="false">
 					<layoutData>
 						<FlexItemData growFactor="0" baseSize="400px" />

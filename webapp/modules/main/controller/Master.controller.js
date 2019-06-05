@@ -16,7 +16,7 @@ var CController = Controller.extend("app.modules.main.controller.Master", {
     },
 
     onPressGoToMaster : function() {
-        this.getRouter().navTo("arrayPizza");  // "pizzalist/{pizzaURLname}"
+        this.getRouter().navTo("arrayPizza"); 
     },
 
     onBasket: function() {
