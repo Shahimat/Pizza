@@ -1,0 +1,24 @@
+<mvc:View
+    controllerName="mainpath.controller.Master"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+    <Page id="dishes" title="Список блюд" icon="sap-icon://action" class="sapUiStdPage">
+        <content>
+            <List>
+                <items>
+                    <StandardListItem title="Пиццы" type="Navigation" press="onPressGoToMaster"/>
+                </items>
+            </List>
+        </content>
+        <footer>
+			<OverflowToolbar>
+				<!-- <ToolbarSpacer/>
+				<Button type="Accept" text="Save"/>
+				<Button type="Reject" text="Cancel"/> -->
+                <ToolbarSpacer/>
+                <Button type="Accept" text="Корзина" press=".onBasket"/>
+			</OverflowToolbar>
+		</footer>
+    </Page>
+</mvc:View>

@@ -1,0 +1,42 @@
+<mvc:View
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+    controllerName="mainpath.controller.Detail"
+	xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<Page
+		id="detailstart"
+		class="sapUiStdPage">
+		<text />
+		<FlexBox
+			height="100%"
+			alignItems="Center"
+			justifyContent="Start"
+			direction="Column">
+			<items>
+				<text
+					class="bigtext" 
+					textAlign="Center"
+					text="Добро пожаловать на наш вкусный сайт!"/>
+				<text
+					class="bigtext"
+					textAlign="Center"
+					text="Не желаете немного перекусить? :)"/>
+
+				<Image
+					src="/images/startpage.jpg"
+					width="100%"
+					visible="true"
+					densityAware="false">
+					<layoutData>
+						<FlexItemData growFactor="0" baseSize="400px" />
+					</layoutData>
+				</Image>
+
+			</items>
+		</FlexBox>
+		<footer>
+			<OverflowToolbar>
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>

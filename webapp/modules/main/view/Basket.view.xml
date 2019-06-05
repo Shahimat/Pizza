@@ -1,0 +1,85 @@
+<mvc:View
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+    controllerName="mainpath.controller.Basket"
+	xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:core="sap.ui.core">
+	<Page
+        id="basketpage"
+		title="Корзина"
+		class="sapUiContentPadding"
+		backgroundDesign="Solid"
+		showNavButton="true"
+		navButtonText="some"
+		navButtonPress="onBack">
+        <content>
+			<VBox class="sapUiSmallMargin">
+
+				<Table
+					id="ingredientTable"
+					items="{path: 'pizzadata>/recipes'}"
+					noDataText="продукты еще не выбраны">
+					<columns>
+						<Column>
+							<Text text="Наименование выбранного продукта" />
+						</Column>
+						<Column
+							minScreenWidth="Tablet"
+							demandPopin="true">
+							<Text text="Полная стоимость выбранного продукта" />
+						</Column>
+						<Column
+							minScreenWidth="Tablet"
+							demandPopin="true">
+							<Text text="Элементы управления количеством" />
+						</Column>
+					</columns>
+					<items>
+						<ColumnListItem>
+							<cells>
+								<ObjectIdentifier
+									title="{pizzadata>name}"
+									text="пицца"
+									class="sapMTableContentMargin" />
+								<ObjectIdentifier
+									text="{pizzadata>price} {pizzadata>CurrencyCode} x {pizzadata>quantity} = {pizzadata>cost} {pizzadata>CurrencyCode}"/>
+								<HBox>
+									<Button type="Reject" text="˅" press="onQuantityDown"/>
+									<Input 
+										type="Number" 
+										textAlign="End" 
+										value="{pizzadata>quantity}" 
+										width="4em" 
+										liveChange="onValidatePizzaQuantity"/> 
+									<Button type="Accept" text="˄" press="onQuantityUp"/>
+									<!-- <NumberInput
+										value="{pizzadata>quantity}" 									    
+										width="4em" 
+										liveChange="onValidatePizzaQuantity"
+									/> -->
+								</HBox>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</VBox>
+			<Panel>
+				<FlexBox
+					height="100px"
+					alignItems="Start"
+					justifyContent="End">
+					<items>
+						<ObjectIdentifier
+							title="{pizzadata>/totalcost} {pizzadata>/recipes/0/CurrencyCode}"
+							class="sapMTableContentMargin"/>
+					</items>
+				</FlexBox>
+			</Panel>	
+		</content>
+		<footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>

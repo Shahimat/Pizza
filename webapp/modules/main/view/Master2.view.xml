@@ -1,0 +1,31 @@
+<mvc:View
+    controllerName="mainpath.controller.Master2"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+    <Page id="pizzas" title="Список пицц" icon="sap-icon://action" class="sapUiStdPage" showNavButton="true"
+            navButtonPress="onPressMasterBack">
+        <content>
+            <List itemPress="onListItemPress" items="{pizzadata>/recipes}">
+                <items>
+                    <StandardListItem 
+                        title="{pizzadata>name}" 
+                        type="Active" 
+                        custom:to="detailmain"
+                        info="{pizzadata>price} {pizzadata>CurrencyCode}"/>
+                </items>
+            </List>
+        </content>
+        <footer>
+			<OverflowToolbar>
+				<!-- <ToolbarSpacer/>
+				<Button type="Accept" text="Save"/>
+				<Button type="Reject" text="Cancel"/> -->
+                <ToolbarSpacer/>
+                <Button type="Accept" text="Корзина" press=".onBasket"/>
+			</OverflowToolbar>
+		</footer>
+    </Page>
+</mvc:View>
+
+<!-- oEvent.getParameter("listItem").getBindingContext("pizzadata").getObject() -->

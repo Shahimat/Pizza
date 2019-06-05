@@ -1,0 +1,54 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core" >
+
+    <FlexBox
+        alignItems="Start"
+        justifyContent="Center">
+        <items>
+            <Image
+                src="/images/{pizzadata>imgname}"
+                width="100%"
+                densityAware="false"
+                visible="true">
+                <layoutData>
+                    <FlexItemData growFactor="0" baseSize="400px" />
+                </layoutData>
+            </Image>
+        </items>
+    </FlexBox>
+
+    <VBox class="sapUiSmallMargin">
+    
+        <Text text="{pizzadata>description}" />
+
+        <Table
+            id="ingredientTable"
+            items="{pizzadata>ingredients}"
+            >
+            <columns>
+                <Column>
+                    <Text text="Состав" />
+                </Column>
+                <Column
+                    minScreenWidth="Tablet"
+                    demandPopin="true">
+                    <Text text="прочее" />
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem>
+                    <cells>
+                        <ObjectIdentifier
+                            title="{pizzadata>item}"
+                            text="{pizzadata>item}"
+                            class="sapMTableContentMargin" />
+                        <Text
+                            text="{pizzadata>item}" />
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+    </VBox>
+
+</core:FragmentDefinition>
