@@ -23,7 +23,7 @@
 					text="Не желаете немного перекусить? :)"/>
 
 				<Image
-					src="/images/startpage.jpg"
+					src="/images/{pizzadata>/info/startimage}"
 					width="100%"
 					visible="false"
 					densityAware="false">

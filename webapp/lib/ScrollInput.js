@@ -46,6 +46,14 @@ sap.ui.define([
                 type: "Accept",
 				press: this.onValueUp.bind(this)
 			}));
+
+		},
+
+		onAfterRendering : function(){
+			this.getAggregation("_input").setValue( this.getValue() );
+			if(this.getWidth()){ 
+				this.getAggregation("_input").setWidth( this.getWidth() );
+			}
 		},
 
 		onValueDown: function(){
@@ -87,12 +95,6 @@ sap.ui.define([
         },
 
 		renderer: function (oRM, oControl) {
-
-			oControl.getAggregation("_input").setValue( oControl.getValue() );
-			if(oControl.getWidth()){ 
-				oControl.getAggregation("_input").setWidth( oControl.getWidth() );
-			}
-
 			oRM.write("<div");
 			oRM.writeControlData(oControl);
 			oRM.addClass("myAppDemoScrollInput");

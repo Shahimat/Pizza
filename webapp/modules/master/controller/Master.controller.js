@@ -4,7 +4,7 @@ sap.ui.define([
 ], function(Controller, UIComponent) {
 "use strict";
 
-var CController = Controller.extend("app.modules.main.controller.Master", {
+var CController = Controller.extend("masterpath.controller.Master", {
 
 
     onInit: function(){

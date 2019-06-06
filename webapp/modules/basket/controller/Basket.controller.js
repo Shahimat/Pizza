@@ -3,7 +3,7 @@ sap.ui.define([
 	"sap/ui/core/UIComponent"
 ], function (Controller, UIComponent) {
 	"use strict";
-	return Controller.extend("app.modules.main.controller.Basket", {
+	return Controller.extend("basketpath.controller.Basket", {
         
         onInit: function () {
 			//навешиваю на роут обработчик событий с ссылью на него

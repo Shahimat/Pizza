@@ -1,5 +1,5 @@
 <mvc:View
-    controllerName="mainpath.controller.Master2"
+    controllerName="masterpath.controller.Master2"
     xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">

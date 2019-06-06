@@ -60,10 +60,13 @@
           "config": {
             "routerClass": "sap.m.routing.Router",
             "viewType":    "XML",
-            "viewPath":    "app.modules.main.view",
+            "viewPath":    "mainpath.view", 
             "controlAggregation": "detailPages",
             "controlId":   "app",
-            "async": true
+            "async": true,
+            "bypassed": {
+              "target": ["defaultMaster", "notFound"]
+            }
           },
 
           "routes": [
@@ -93,26 +96,35 @@
             "defaultMaster": {
               "viewId":   "master",
               "viewName": "Master",
+              "viewPath": "masterpath.view", 
               "controlAggregation": "masterPages"
             },
             "pizzaList": {
               "viewId":   "master2",
               "viewName": "Master2",
+              "viewPath": "masterpath.view", 
               "controlAggregation": "masterPages"
             },
             "defaultDetail": {
               "viewId":   "detail",
               "viewName": "Detail",
+              "viewPath": "mainpath.view", 
               "controlAggregation": "detailPages"
             },
             "detailPizza": {
-              "viewId":   "detail2",
-              "viewName": "Detail2",
+              "viewId":   "pizzainfo",
+              "viewName": "PizzaInfo",
+              "viewPath": "productpath.view", 
               "controlAggregation": "detailPages"
             },
             "defaultBasket": {
               "viewId":   "basket",
-              "viewName": "Basket"
+              "viewName": "Basket",
+              "viewPath": "basketpath.view"
+            },
+            "notFound": {
+              "viewId":   "notfound",
+              "viewName": "PageNotFound"
             }
           }
         }

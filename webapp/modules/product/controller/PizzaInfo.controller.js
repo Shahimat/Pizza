@@ -3,7 +3,7 @@ sap.ui.define([
 	"sap/ui/core/UIComponent"
 ], function (Controller, UIComponent) {
 	"use strict";
-	return Controller.extend("app.modules.main.controller.Detail2", {
+	return Controller.extend("productpath.controller.PizzaInfo", {
 
         onInit: function () {
 			let oRouter = sap.ui.core.UIComponent.getRouterFor(this);
