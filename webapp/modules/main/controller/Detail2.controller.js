@@ -30,38 +30,7 @@ sap.ui.define([
 			oPage.setBindingContext(new sap.ui.model.Context(oModel, "/recipes/" + nPizza), "pizzadata");
 		},
 
-		onQuantityDown: function(oEvent){
-			let urlname = window.location.hash.split("/").reverse()[0];
-			let oModel = this.getView().getModel("pizzadata");
-			let nPizza = oModel.getProperty("/recipes").findIndex(function(item){
-				return urlname == item.urlname;
-			});
-			let q = oModel.getProperty("/recipes")[nPizza].quantity;
-			if(q > 0) q--;
-			oModel.setProperty("/recipes/" + nPizza + '/quantity', q);
-			this.getOwnerComponent().onCalculate();
-		},
-
-		onQuantityUp: function(oEvent){
-			let urlname = window.location.hash.split("/").reverse()[0];
-			let oModel = this.getView().getModel("pizzadata");
-			let nPizza = oModel.getProperty("/recipes").findIndex(function(item){
-				return urlname == item.urlname;
-			});
-			let q = oModel.getProperty("/recipes")[nPizza].quantity;
-			if(q < 9) q++;
-			oModel.setProperty("/recipes/" + nPizza + '/quantity', q);
-			this.getOwnerComponent().onCalculate();
-		},
-
-		onValidatePizzaQuantity: function(oEvent){
-			let sValue = oEvent.getSource().getValue();
-			let sNewValue = "0";
-			if(sValue && +sValue > 0 && +sValue < 10){
-				sNewValue = Number(sValue);
-				
-			} 
-			oEvent.getSource().setValue( sNewValue );
+		onSIChange: function (oEvent) {
 			this.getOwnerComponent().onCalculate();
 		}
 

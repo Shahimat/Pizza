@@ -28,6 +28,7 @@ sap.ui.define([
 		},
 
 		onSIChange: function (oEvent) {
+			this.getOwnerComponent().onCalculate();
 			this.onFilter();
 		}		
 		

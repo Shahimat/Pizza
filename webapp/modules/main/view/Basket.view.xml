@@ -4,7 +4,7 @@
     controllerName="mainpath.controller.Basket"
 	xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
 	xmlns:core="sap.ui.core"
-	xmlns:mycontroll="app.modules.main.controller">
+	xmlns:mycontroll="app.lib">
 	<Page
         id="basketpage"
 		title="Корзина"
@@ -53,7 +53,13 @@
 										width="4em" 
 										liveChange="onValidatePizzaQuantity"/> 
 									<Button type="Accept" text="˄" press="onQuantityUp"/> -->
-									<mycontroll:ScrollInput change="onSIChange"/>
+									<mycontroll:ScrollInput 
+										liveChange="onSIChange" 
+										minValue="0" 
+										maxValue="9"
+										width="4em"
+										value="{pizzadata>quantity}"
+									/>
 									<!-- <ScrollInput
 										value="{pizzadata>quantity}" 									    
 										width="4em" 
