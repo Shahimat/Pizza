@@ -6,10 +6,8 @@ sap.ui.define([
 
 var CController = Controller.extend("masterpath.controller.Master", {
 
-
     onInit: function(){
     },
-
 
     getRouter : function () {
         return UIComponent.getRouterFor(this);

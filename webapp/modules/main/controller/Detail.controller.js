@@ -3,7 +3,7 @@ sap.ui.define([
 	"sap/ui/core/UIComponent"
 ], function (Controller, UIComponent) {
 	"use strict";
-	return Controller.extend("app.modules.main.controller.Detail", {
+	return Controller.extend("mainpath.controller.Detail", {
         
         onInit: function () {
 		}

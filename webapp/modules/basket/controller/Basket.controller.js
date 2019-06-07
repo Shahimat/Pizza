@@ -1,7 +1,8 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
-	"sap/ui/core/UIComponent"
-], function (Controller, UIComponent) {
+	"sap/ui/core/UIComponent",
+	'mainpath/model/DataLogic'
+], function (Controller, UIComponent, DataLogic) {
 	"use strict";
 	return Controller.extend("basketpath.controller.Basket", {
         
@@ -28,7 +29,8 @@ sap.ui.define([
 		},
 
 		onSIChange: function (oEvent) {
-			this.getOwnerComponent().onCalculate();
+			// this.getOwnerComponent().onCalculate();
+			DataLogic.prototype.onCalculate();
 			this.onFilter();
 		}		
 		

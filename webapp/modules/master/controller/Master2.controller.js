@@ -8,7 +8,6 @@ var CController = Controller.extend("masterpath.controller.Master2", {
 
 
     onInit: function(){
-
     },
 
     getRouter : function () {

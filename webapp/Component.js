@@ -18,27 +18,6 @@ sap.ui.define([
 			// create the views based on the url/hash
 			this.getRouter().initialize();
 
-			let oModel = this.getModel("pizzadata");
-			oModel.dataLoaded().then(function(){
-				this.extandPizzaData();
-			}.bind(this));
-
-			let oData = {
-				position: 0
-			};
-			let oPosModel = new JSONModel(oData);
-			this.setModel(oPosModel, "posmodel");
-
-		},
-
-		extandPizzaData: function(){
-			let oModel = this.getModel("pizzadata");
-			oModel.setProperty("/totalcost", 0);
-			oModel.getProperty("/recipes").forEach(function(element, i) {
-				oModel.setProperty("/recipes/" + i + "/quantity", 0);
-				oModel.setProperty("/recipes/" + i + "/cost", 0);
-			});
-
 		},
 
 		getContentDensityClass: function () {
@@ -51,18 +30,6 @@ sap.ui.define([
 			}
 			return this._sContentDensityClass;
 		},
-
-		onCalculate: function(){
-			let oModel = this.getModel("pizzadata");
-			let aRecipes = oModel.getProperty("/recipes");
-			let totalcost = 0;
-			for(let i = 0; i < aRecipes.length; i++){
-				aRecipes[i].cost = Number(aRecipes[i].price) * Number(aRecipes[i].quantity);
-				totalcost += aRecipes[i].cost
-			}
-			oModel.setProperty("/recipes",   aRecipes);
-			oModel.setProperty("/totalcost", totalcost);
-		}
 
 	});
 
