@@ -25,7 +25,7 @@
 				<Image
 					src="/images/{pizzadata>/info/startimage}"
 					width="100%"
-					visible="false"
+					visible="true"
 					densityAware="false">
 					<layoutData>
 						<FlexItemData growFactor="0" baseSize="400px" />
