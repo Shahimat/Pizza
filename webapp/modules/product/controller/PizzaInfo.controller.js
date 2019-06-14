@@ -9,7 +9,6 @@ sap.ui.define([
         onInit: function () {
 			let oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			oRouter.getRoute("currentPizza").attachPatternMatched(this.onPizzaDefined, this);
-
         },
 
 		onPizzaDefined: function (oEvent) {
@@ -34,6 +33,20 @@ sap.ui.define([
 		onSIChange: function (oEvent) {
 			// this.getOwnerComponent().onCalculate();
 			DataLogic.prototype.onCalculate();
+		},
+
+		getRouter : function () {
+			return UIComponent.getRouterFor(this);
+		},
+
+		pressNavBtn: function () {
+			this.getRouter().navTo("arrayPizza"); 
+			// let oSplitApp = this.getOwnerComponent()._oSplitApp;
+			// oSplitApp.showMaster();
+		},
+
+		onBasket: function() {
+			this.getRouter().navTo("basketPage");
 		}
 
 	});

@@ -13,6 +13,9 @@ var CController = Controller.extend("app.modules.main.controller.Main", {
     onInit: function(){
         this.getView().addStyleClass(this.getOwnerComponent().getContentDensityClass());
         DataLogic.prototype.constructor( this.getView().getModel("pizzadata") );
+
+        // debugger;
+        this.getOwnerComponent()._oSplitApp = this.byId("CustomSplitApp");
     }
     
 

@@ -5,7 +5,18 @@
 	xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
 	<Page
 		id="detailstart"
-		class="sapUiStdPage">
+		class="sapUiStdPage"
+		>
+		<customHeader>
+			<Toolbar>
+				<Button
+					icon="sap-icon://menu2"
+					press="pressNavBtn"
+					visible="{device>/isPhone}"/>
+			</Toolbar>
+		</customHeader>
+		<!-- showNavButton="{device>/isPhone}" 
+		navButtonPress="pressNavBtn" -->
 		<text />
 		<FlexBox
 			height="100%"
@@ -25,7 +36,7 @@
 				<Image
 					src="/images/{pizzadata>/info/startimage}"
 					width="100%"
-					visible="true"
+					visible="{pizzadata>/info/imagevisible}"
 					densityAware="false">
 					<layoutData>
 						<FlexItemData growFactor="0" baseSize="400px" />
@@ -36,6 +47,12 @@
 		</FlexBox>
 		<footer>
 			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button 
+					type="Accept" 
+					text="Корзина" 
+					press="onBasket"
+					visible="{device>/isPhone}"/>
 			</OverflowToolbar>
 		</footer>
 	</Page>

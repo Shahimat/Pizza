@@ -24,7 +24,7 @@
             "viewName": "mainpath.view.Main",
             "type":  "XML",
             "async": true,
-            "id":    "app"
+            "id":    "CustomSplitApp"
         },
 
         "dependencies": {
@@ -62,7 +62,7 @@
             "viewType":    "XML",
             "viewPath":    "mainpath.view", 
             "controlAggregation": "detailPages",
-            "controlId":   "app",
+            "controlId":   "CustomSplitApp",
             "async": true,
             "bypassed": {
               "target": ["defaultMaster", "notFound"]
@@ -73,12 +73,17 @@
             {
               "pattern": "",
               "name":    "startPages",
+              "target":  ["defaultDetail", "defaultMaster"]
+            },
+            {
+              "pattern": "start",
+              "name":    "startPage",
               "target":  ["defaultMaster", "defaultDetail"]
             },
             {
               "pattern": "pizzalist",
               "name":    "arrayPizza",
-              "target":  ["pizzaList", "defaultDetail"]
+              "target":  ["defaultDetail", "pizzaList"]
             },
             {
               "pattern": "pizzalist/{pizzaURLname}",

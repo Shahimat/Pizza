@@ -6,6 +6,19 @@ sap.ui.define([
 	return Controller.extend("mainpath.controller.Detail", {
         
         onInit: function () {
+
+		},
+
+		getRouter : function () {
+			return UIComponent.getRouterFor(this);
+		},
+
+		pressNavBtn: function () {
+			this.getRouter().navTo("startPages");
+		},
+
+		onBasket: function() {
+			this.getRouter().navTo("basketPage");
 		}
 		
 	});

@@ -7,8 +7,23 @@
 	xmlns:mycontroll="app.lib">
 	<Page 
 		id="detailCurrentPizza" 
-		title="{pizzadata>name}" 
-		class="sapUiStdPage">
+		class="sapUiStdPage"
+		>
+		<!-- showNavButton="{device>/isPhone}" 
+		navButtonPress="pressNavBtn" -->
+		<customHeader>
+			<Toolbar>
+				<Button
+					icon="sap-icon://menu2"
+					press="pressNavBtn"
+					visible="{device>/isPhone}"/>
+                <ToolbarSpacer/>
+                <Title
+                    text="{pizzadata>name}"
+                    textAlign="Center"/>
+                <ToolbarSpacer/>
+			</Toolbar>
+		</customHeader>
 		<content>
 			<core:Fragment fragmentName="productpath.view.fragment.detailpage" type="XML"/>
 		</content>
@@ -22,6 +37,11 @@
 					width="4em"
 					value="{pizzadata>quantity}"
 				/>
+				<Button 
+					type="Accept" 
+					text="Корзина" 
+					press="onBasket"
+					visible="{device>/isPhone}"/>
 			</Toolbar>
 		</footer>
 	</Page>

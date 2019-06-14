@@ -1,8 +1,9 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/ui/core/UIComponent",
-	'mainpath/model/DataLogic'
-], function (Controller, UIComponent, DataLogic) {
+	"mainpath/model/DataLogic",
+	"sap/ui/Device"
+], function (Controller, UIComponent, DataLogic, Device) {
 	"use strict";
 	return Controller.extend("basketpath.controller.Basket", {
         
@@ -17,7 +18,11 @@ sap.ui.define([
 		},
         
         onBack: function () {
-            this.getRouter().navTo("startPages");
+			if(Device.system.phone){
+				this.getRouter().navTo("startPage");
+			} else {
+				this.getRouter().navTo("startPages");
+			}
 		},
 		
 		onFilter: function() {
@@ -32,7 +37,11 @@ sap.ui.define([
 			// this.getOwnerComponent().onCalculate();
 			DataLogic.prototype.onCalculate();
 			this.onFilter();
-		}		
+		},
+		
+		summFormatter: function(price, CurrencyCode, quantity, cost) {
+			return price + " " + CurrencyCode + " x " + quantity + " = " + cost + " " + CurrencyCode;
+		}
 		
 	});
 });

@@ -1,6 +1,7 @@
 {
   "info":{
-    "startimage": "startimage.jpg"
+    "startimage": "startimage.jpg",
+    "imagevisible": false
   },
   "recipes": [
     {

@@ -17,7 +17,13 @@ sap.ui.define([
 			// create the views based on the url/hash
 			this.getRouter().initialize();
 
+			var deviceModel = new sap.ui.model.json.JSONModel({
+				isPhone: sap.ui.Device.system.phone
+			});
+			this.setModel(deviceModel, "device");
 		},
+
+		// Device.system.phone
 
 		getContentDensityClass: function () {
 			if (!this._sContentDensityClass) {

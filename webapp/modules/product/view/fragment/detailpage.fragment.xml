@@ -10,7 +10,7 @@
                 src="/images/{pizzadata>imgname}"
                 width="100%"
                 densityAware="false"
-                visible="true">
+                visible="{pizzadata>/info/imagevisible}">
                 <layoutData>
                     <FlexItemData growFactor="0" baseSize="400px" />
                 </layoutData>

@@ -3,7 +3,26 @@
     xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
-    <Page id="dishes" title="Список блюд" icon="sap-icon://action" class="sapUiStdPage">
+    <Page 
+        id="dishes"
+        icon="sap-icon://action" 
+        class="sapUiStdPage"
+        >
+        <!-- showNavButton="{device>/isPhone}" 
+		navButtonPress="onPressBack" -->
+        <customHeader>
+			<Toolbar>
+				<Button
+					icon="sap-icon://form"
+					press="onPressBack"
+					visible="{device>/isPhone}"/>
+                <ToolbarSpacer/>
+                <Title
+                    text="Список блюд"
+                    textAlign="Center"/>
+                <ToolbarSpacer/>
+			</Toolbar>
+		</customHeader>
         <content>
             <List>
                 <items>

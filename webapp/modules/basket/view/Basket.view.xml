@@ -7,12 +7,28 @@
 	xmlns:mycontroll="app.lib">
 	<Page
         id="basketpage"
-		title="Корзина"
 		class="sapUiContentPadding"
 		backgroundDesign="Solid"
+		>
+		<!-- 
+		title="Корзина"
 		showNavButton="true"
 		navButtonText="some"
-		navButtonPress="onBack">
+		navButtonPress="onBack"
+		 -->
+		<customHeader>
+			<Toolbar>
+				<Button
+					icon="sap-icon://form"
+					press="onBack"
+					visible="{device>/isPhone}"/>
+                <ToolbarSpacer/>
+                <Title
+                    text="Корзина"
+                    textAlign="Center"/>
+                <ToolbarSpacer/>
+			</Toolbar>
+		</customHeader>
         <content>
 			<VBox class="sapUiSmallMargin">
 
@@ -27,7 +43,7 @@
 						<Column
 							minScreenWidth="Tablet"
 							demandPopin="true">
-							<Text text="Полная стоимость выбранного продукта" />
+							<Text text="Стоимость выбранного продукта" />
 						</Column>
 						<Column
 							minScreenWidth="Tablet"
@@ -43,7 +59,16 @@
 									text="пицца"
 									class="sapMTableContentMargin" />
 								<ObjectIdentifier
-									text="{pizzadata>price} {pizzadata>CurrencyCode} x {pizzadata>quantity} = {pizzadata>cost} {pizzadata>CurrencyCode}"/>
+									text="{
+										parts: [
+											'pizzadata>price',
+											'pizzadata>CurrencyCode',
+											'pizzadata>quantity',
+											'pizzadata>cost'
+										],
+										formatter: '.summFormatter'
+									}"/>
+									<!-- text="{pizzadata>price} {pizzadata>CurrencyCode} x {pizzadata>quantity} = {pizzadata>cost} {pizzadata>CurrencyCode}" -->
 								<HBox>
 									<mycontroll:ScrollInput 
 										liveChange="onSIChange" 
@@ -64,12 +89,16 @@
 					alignItems="Start"
 					justifyContent="End">
 					<items>
+						<!-- <Text 
+							text="Итоговая стоимость: "
+							class="sapUiSmallMarginEnd"/> -->
 						<ObjectIdentifier
 							title="{pizzadata>/totalcost} {pizzadata>/recipes/0/CurrencyCode}"
+							text="Итоговая стоимость"
 							class="sapMTableContentMargin"/>
 					</items>
 				</FlexBox>
-			</Panel>	
+			</Panel>
 		</content>
 		<footer>
 			<OverflowToolbar>

@@ -17,6 +17,10 @@ var CController = Controller.extend("masterpath.controller.Master", {
         this.getRouter().navTo("arrayPizza"); 
     },
 
+    onPressBack: function() {
+        this.getRouter().navTo("startPage");
+    },
+
     onBasket: function() {
         this.getRouter().navTo("basketPage");
     }

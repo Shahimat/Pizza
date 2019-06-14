@@ -4,7 +4,7 @@ sap.ui.define([
     "sap/m/Input"
 ], function (Control, Button, Input) {
 	"use strict";
-	return Control.extend("app.modules.main.controller.ScrollInput", {
+	return Control.extend("app.lib.ScrollInput", {
 		metadata: {
 			properties: {
 				minValue:	{type: "Number"},
@@ -35,9 +35,6 @@ sap.ui.define([
 			}));
 
 			this.setAggregation("_input", new Input({
-                // type: "Number",
-                // value: this.getValue(),
-                // width: this.getWidth(), 
                 liveChange: this.onValueValidate
             }));
 
